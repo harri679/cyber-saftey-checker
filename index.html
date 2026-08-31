@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cyber Safety Checker</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <h1><span aria-hidden="true">🛡️</span> Cyber Safety Checker</h1>
+      <p class="subtitle">
+        Educational self-check for everyday cybersecurity habits.
+      </p>
+    </header>
+
+    <main class="app-container">
+      <section id="welcome-view" class="card">
+        <h2>Welcome</h2>
+        <p>
+          Find out how strong your everyday cybersecurity habits are. Answer a
+          few questions and receive your personal Cyber Safety Score and
+          recommendations.
+        </p>
+        <p class="note">
+          Your answers stay in this browser and are not sent to a server.
+        </p>
+        <button id="start-button" type="button">Start Safety Check</button>
+      </section>
+
+      <section id="quiz-view" class="card" hidden>
+        <h2>Safety Questionnaire</h2>
+        <p id="progress-text" class="progress-text" aria-live="polite"></p>
+        <div
+          class="progress-bar"
+          role="progressbar"
+          aria-label="Question progress"
+          aria-valuemin="1"
+          aria-valuemax="10"
+          aria-valuenow="1"
+        >
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+
+        <form id="question-form">
+          <fieldset id="question-fieldset">
+            <legend id="question-legend"></legend>
+            <label class="answer-option" for="answer-yes">
+              <input id="answer-yes" type="radio" name="answer" value="yes" />
+              Yes
+            </label>
+            <label class="answer-option" for="answer-sometimes">
+              <input
+                id="answer-sometimes"
+                type="radio"
+                name="answer"
+                value="sometimes"
+              />
+              Sometimes
+            </label>
+            <label class="answer-option" for="answer-no">
+              <input id="answer-no" type="radio" name="answer" value="no" />
+              No
+            </label>
+          </fieldset>
+
+          <p id="question-error" class="error-message" aria-live="assertive"></p>
+          <button id="next-button" type="submit">Next Question</button>
+        </form>
+      </section>
+
+      <section id="results-view" class="card" hidden>
+        <h2>Your Cyber Safety Results</h2>
+        <p class="score-disclaimer">
+          This score is based only on your answers and does not scan your
+          device, accounts, or network.
+        </p>
+
+        <div class="score-panel">
+          <p class="score-label">Cyber Safety Score</p>
+          <p id="score-value" class="score-value">0 / 100</p>
+          <p id="score-category" class="score-category"></p>
+          <p id="score-message" class="score-message"></p>
+        </div>
+
+        <h3>Recommended Improvements</h3>
+        <ul id="recommendations-list" class="recommendations-list"></ul>
+        <p id="storage-status" class="note" aria-live="polite"></p>
+
+        <button id="restart-button" type="button">Take Check Again</button>
+      </section>
+
+      <section id="history-view" class="card">
+        <div class="history-header">
+          <h2>Previous Results</h2>
+          <button id="clear-history-button" type="button">Clear History</button>
+        </div>
+        <div id="history-list"></div>
+      </section>
+    </main>
+
+    <footer class="privacy card">
+      <h2>Privacy Information</h2>
+      <ul>
+        <li>This app does not scan your computer, accounts, or network.</li>
+        <li>This app does not collect passwords or sensitive credentials.</li>
+        <li>Your responses are processed only in your browser.</li>
+        <li>Results are saved locally using localStorage.</li>
+        <li>Clearing browser data may remove saved results.</li>
+      </ul>
+    </footer>
+  </body>
+</html>
